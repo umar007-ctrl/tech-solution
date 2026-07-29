@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Solution — Web Development, SEO & Digital Marketing</title>
+    <!-- Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="shortcut icon" href="Untitled - 29 July 2026 at 21.46.17 (1) (1).png" type="image/x-icon">
+    <style>
+        /* ---------- CSS Variables (Light mode default) ---------- */
+        :root {
+            --bg-body: #fafcfd;
+            --bg-card: #ffffff;
+            --bg-soft: #eef4fa;
+            --bg-stack: #f2f7fd;
+            --bg-contact: #0b1a2e;
+            --text-primary: #0b1a2e;
+            --text-secondary: #1e2f44;
+            --text-muted: #2b4058;
+            --text-light: #3f5a77;
+            --border-light: #e6eef8;
+            --border-card: #eef3f9;
+            --shadow-card: 0 12px 28px -8px rgba(0, 20, 40, 0.06);
+            --shadow-hover: 0 20px 32px -12px rgba(0, 30, 60, 0.10);
+            --accent: #1a5b9c;
+            --accent-gradient: linear-gradient(135deg, #1f4f7a, #3b7bb0);
+            --tag-bg: #eef4fa;
+            --tag-text: #1f4670;
+            --footer-border: #e1eaf3;
+            --transition: 0.3s ease;
+            --faq-border: #e6eef8;
+        }
+
+        /* ---------- Dark Mode ---------- */
+        body.dark {
+            --bg-body: #0d1b2a;
+            --bg-card: #1b2d44;
+            --bg-soft: #1f334a;
+            --bg-stack: #1a2c40;
+            --bg-contact: #0a1622;
+            --text-primary: #eaf0f8;
+            --text-secondary: #d0dcee;
+            --text-muted: #b0c4dd;
+            --text-light: #9bb0cc;
+            --border-light: #2a405a;
+            --border-card: #2a405a;
+            --shadow-card: 0 12px 28px -8px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 20px 32px -12px rgba(0, 0, 0, 0.6);
+            --accent: #5b9bd5;
+            --accent-gradient: linear-gradient(135deg, #5b9bd5, #7fb8e8);
+            --tag-bg: #2a405a;
+            --tag-text: #c7ddf5;
+            --footer-border: #2a405a;
+            --faq-border: #2a405a;
+        }
+
+        /* ---------- Reset & Base ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ---------- Animations ---------- */
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children>* {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .stagger-children.visible>*:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .stagger-children.visible>*:nth-child(2) {
+            transition-delay: 0.10s;
+        }
+
+        .stagger-children.visible>*:nth-child(3) {
+            transition-delay: 0.15s;
+        }
+
+        .stagger-children.visible>*:nth-child(4) {
+            transition-delay: 0.20s;
+        }
+
+        .stagger-children.visible>*:nth-child(5) {
+            transition-delay: 0.25s;
+        }
+
+        .stagger-children.visible>*:nth-child(6) {
+            transition-delay: 0.30s;
+        }
+
+        .stagger-children.visible>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------- Navbar ---------- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        /* ---------- LOGO STYLES ---------- */
+        /* For text logo (default) */
+        .logo-icon-text {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* For image logo - UNCOMMENT AND USE THIS */
+
+        .logo-icon-img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-outline {
+            border: 1.5px solid var(--text-primary);
+            padding: 0.6rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-primary);
+            color: var(--bg-body);
+        }
+
+        .theme-toggle {
+            background: var(--bg-soft);
+            border: none;
+            border-radius: 60px;
+            width: 44px;
+            height: 44px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--border-light);
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 4rem 0 3rem;
+        }
+
+        .hero-tag {
+            background: var(--bg-soft);
+            padding: 0.4rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            max-width: 700px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ---------- Sections ---------- */
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            color: var(--text-light);
+            max-width: 650px;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0 4rem;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 1.5rem 1.2rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-card);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-card i {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-card h4 {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0 4rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 2rem 1.6rem;
+            border: 1px solid var(--border-light);
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tags span {
+            background: var(--tag-bg);
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--tag-text);
+        }
+
+        .learn-link {
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+
+        .learn-link i {
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+        }
+
+        .learn-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* ---------- Stack (Top-Tier Talents) - NEW GRID ---------- */
+        .stack-section {
+            background: var(--bg-stack);
+            border-radius: 48px;
+            padding: 3rem 2.5rem;
+            margin: 3rem 0;
+            transition: background var(--transition);
+        }
+
+        .stack-header {
+            margin-bottom: 2rem;
+        }
+
+        .stack-header .section-title {
+            margin-bottom: 0.2rem;
+        }
+
+        .stack-header p {
+            color: var(--text-light);
+            max-width: 600px;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .stack-category {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-card);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .stack-category:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stack-category .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .stack-category .category-header i {
+            color: var(--accent);
+            font-size: 1.4rem;
+            width: 2rem;
+            text-align: center;
+        }
+
+        .stack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .stack-tags span {
+            background: var(--tag-bg);
+            padding: 0.35rem 1.1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--tag-text);
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+            border: 1px solid transparent;
+        }
+
+        .stack-tags span:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+            background: var(--bg-card);
+        }
+
+        /* Special icon tags for .NET, JS, etc */
+        .stack-tags span .fab,
+        .stack-tags span .fas {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-contact);
+            color: white;
+            border-radius: 40px;
+            padding: 3rem 3rem;
+            margin: 4rem 0 3rem;
+            transition: background var(--transition);
+        }
+
+        .contact-left h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-left p {
+            opacity: 0.75;
+            max-width: 360px;
+        }
+
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            align-items: flex-end;
+        }
+
+        .contact-right a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity 0.2s;
+        }
+
+        .contact-right a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-right i {
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 4rem 0 3rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .faq-card {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 1.2rem;
+            border: 1px solid var(--faq-border);
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .faq-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            gap: 1rem;
+        }
+
+        .faq-question i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-card.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease;
+            opacity: 0;
+            padding-top: 0;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        .faq-card.open .faq-answer {
+            max-height: 300px;
+            opacity: 1;
+            padding-top: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--footer-border);
+            padding: 2.5rem 0 2rem;
+            margin-top: 1rem;
+            transition: border-color var(--transition);
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .footer-brand .brand-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Footer logo styles */
+        .footer-brand .logo-icon-text {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* For image logo in footer - UNCOMMENT AND USE THIS */
+        /*
+        .footer-brand .logo-icon-img {
+            height: 36px;
+            width: auto;
+            display: block;
+        }
+        */
+
+        .footer-brand .logo {
+            font-size: 1.4rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            max-width: 260px;
+            margin-top: 0.2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links h4 {
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.8rem;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--footer-border);
+            margin-top: 1.5rem;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stack-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .stack-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-wrap {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .contact-right {
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .footer-grid {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Nav -->
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">
+                <!-- ============================================= -->
+                <!-- TO ADD YOUR LOGO IMAGE:                       -->
+                <!-- 1. Uncomment the <img> line below             -->
+                <!-- 2. Comment out the <div class="logo-icon-text"> line -->
+                <!-- 3. Replace "your-logo.png" with your image path -->
+                <!-- ============================================= -->
+
+                <!-- TEXT LOGO (default) -->
+                <!-- <div class="logo-icon-text">TS</div> --->
+
+                <!-- IMAGE LOGO (uncomment this and comment the one above) -->
+                <img src="Untitled - 29 July 2026 at 21.46.17 (1) (1).png" alt="Tech Solution" class="logo-icon-img" />
+
+                <div class="logo">Tech Solution</div>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#stack">Stack</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-outline">Let's talk</button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <section class="hero animate-on-scroll" id="hero">
+            <span class="hero-tag">Digital solutions crafted with precision</span>
+            <h1>Building the future <br /><span>of your business.</span></h1>
+            <p>We design, develop, and grow digital products that move people. From polished websites to smart marketing
+                — Tech Solution is your end-to-end partner.</p>
+            <div class="hero-stats">
+                <div class="stat-item"><span class="stat-number">120+</span><span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Clients</span></div>
+                <div class="stat-item"><span class="stat-number">8 yrs</span><span class="stat-label">Experience</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about-grid animate-on-scroll" id="about">
+            <div class="about-text">
+                <span style="font-weight:600; color:var(--accent);">About Us</span>
+                <h3>A studio built for ambitious brands.</h3>
+                <p>Tech Solution is a multidisciplinary team of engineers, designers, and marketers. We partner with
+                    founders and product leaders to ship experiences that convert — and keep converting long after
+                    launch.</p>
+                <p>From the first sketch to the last deployment, we obsess over the details so your users don't have to.
+                </p>
+            </div>
+            <div class="about-features stagger-children" id="aboutFeatures">
+                <div class="feature-card"><i class="fas fa-bullseye"></i>
+                    <h4>Strategy First</h4>
+                    <p>Every pixel serves a business goal.</p>
+                </div>
+                <div class="feature-card"><i class="fas fa-user-friends"></i>
+                    <h4>Human Centered</h4>
+                    <p>We design for the people who click.</p>
+                </div>
+                <div class="feature-card"><i class="fas fa-rocket"></i>
+                    <h4>Fast & Modern</h4>
+                    <p>Cutting-edge tech, delivered on time.</p>
+                </div>
+                <div class="feature-card"><i class="fas fa-chart-line"></i>
+                    <h4>Proven Results</h4>
+                    <p>Metrics that prove the ROI.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="animate-on-scroll" id="services">
+            <h2 class="section-title">Services that scale with you</h2>
+            <p class="section-sub">Six focused disciplines. One unified team. Zero handoff friction.</p>
+            <div class="services-grid stagger-children" id="servicesGrid">
+                <div class="service-card">
+                    <h3>Web Development</h3>
+                    <p>Blazing fast, scalable websites & web apps built with modern stacks.</p>
+                    <div class="tech-tags"><span>React</span><span>Next.js</span><span>TypeScript</span></div>
+                    <a href="#" class="learn-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>SEO Optimization</h3>
+                    <p>Rank higher, get discovered. On-page, technical & content SEO that works.</p>
+                    <div class="tech-tags"><span>Audits</span><span>Keywords</span><span>Backlinks</span></div>
+                    <a href="#" class="learn-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>Digital Marketing</h3>
+                    <p>Full-funnel campaigns across social, search, and email that drive real ROI.</p>
+                    <div class="tech-tags"><span>Ads</span><span>Social</span><span>Email</span></div>
+                    <a href="#" class="learn-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>Web Maintenance</h3>
+                    <p>Keep your site secure, fast, and up-to-date with our ongoing care plans.</p>
+                    <div class="tech-tags"><span>Security</span><span>Backups</span><span>Support</span></div>
+                    <a href="#" class="learn-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>Analytics & Growth</h3>
+                    <p>Data-driven insights and A/B experiments to compound your growth.</p>
+                    <div class="tech-tags"><span>GA4</span><span>CRO</span><span>Reports</span></div>
+                    <a href="#" class="learn-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stack (Top-Tier Talents) - NEW VISUAL GRID -->
+        <section class="stack-section animate-on-scroll" id="stack">
+            <div class="stack-header">
+                <h2 class="section-title">Top-Tier Talents</h2>
+                <p>At Tech Solution, we specialize in linking you with exceptional talent. Our rigorous vetting process
+                    guarantees access to top professionals with proven expertise and a track record of excellence.</p>
+            </div>
+            <div class="stack-grid stagger-children" id="stackGrid">
+                <!-- Front End -->
+                <div class="stack-category">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i> Front End
+                    </div>
+                    <div class="stack-tags">
+                        <span><i class="fab fa-js"></i> JavaScript</span>
+                        <span><i class="fab fa-js"></i> TypeScript</span>
+                        <span><i class="fab fa-html5"></i> HTML5</span>
+                        <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span><i class="fab fa-react"></i> React.js</span>
+                        <span><i class="fab fa-react"></i> Next.js</span>
+                        <span><i class="fas fa-code"></i> Redux</span>
+                        <span><i class="fas fa-code"></i> Tailwind</span>
+                        <span><i class="fas fa-book"></i> Storybook</span>
+                        <span><i class="fas fa-cube"></i> Webpack</span>
+                        <span><i class="fab fa-vuejs"></i> Vue.js</span>
+                        <span><i class="fab fa-wordpress"></i> WordPress</span>
+                    </div>
+                </div>
+
+                <!-- Back End -->
+                <div class="stack-category">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i> Back End
+                    </div>
+                    <div class="stack-tags">
+                        <span><i class="fab fa-node-js"></i> Node.js</span>
+                        <span><i class="fas fa-code"></i> FastAPI</span>
+                        <span><i class="fas fa-leaf"></i> Spring Boot</span>
+                        <span><i class="fas fa-code"></i> .Net Core</span>
+                        <span><i class="fas fa-code"></i> GraphQL</span>
+                        <span><i class="fas fa-code"></i> gRPC</span>
+                        <span><i class="fas fa-code"></i> Apache Kafka</span>
+                        <span><i class="fas fa-code"></i> Django</span>
+                        <span><i class="fas fa-database"></i> Redis</span>
+                        <span><i class="fas fa-database"></i> MySQL</span>
+                        <span><i class="fas fa-database"></i> MongoDB</span>
+                        <span><i class="fas fa-code"></i> Istio</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section animate-on-scroll" id="faq">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-sub">Everything you need to know about working with us. Can't find what you're looking
+                for?
+                Feel free to <a href="#contact"
+                    style="color:var(--accent); text-decoration:none; font-weight:600;">contact us</a>.</p>
+            <div class="faq-grid stagger-children" id="faqGrid">
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <span>What is your typical project timeline?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">Most projects take between 4–12 weeks depending on scope. We'll give you a
+                        clear timeline and regular updates from day one.</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <span>Do you offer ongoing support after launch?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">Absolutely. We provide maintenance plans, performance monitoring, and growth
+                        support to keep your digital product in top shape.</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <span>How do you handle project communication?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">We use Slack, Zoom, and weekly syncs. You'll have a dedicated project
+                        manager
+                        and full transparency on progress.</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <span>Can you work with our existing team?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">Yes. We integrate seamlessly with in-house teams, whether you need extra
+                        firepower for a sprint or long-term partnership.</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <span>What industries do you specialize in?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">We've worked with SaaS, fintech, healthcare, e-commerce, and more. Our
+                        approach adapts to your unique business context.</div>
+                </div>
+                <div class="faq-card">
+                    <div class="faq-question">
+                        <span>How do you ensure project security?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">We follow industry best practices: encrypted communication, secure
+                        development lifecycle, NDAs, and GDPR compliance where applicable.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-wrap animate-on-scroll" id="contact">
+            <div class="contact-left">
+                <h2>Let's build something great.</h2>
+                <p>Tell us about your project. We reply within one business day.</p>
+            </div>
+            <div class="contact-right">
+                <a href="#"><i class="fas fa-envelope"></i> hello@info.techsolution.digital</a>
+                <a href="#" class="phone"><i class="fas fa-phone-alt"></i> +92 310 5132592</a>
+                <a href="#"><i class="fas fa-globe"></i> Remote · Worldwide</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-row">
+                        <!-- ============================================= -->
+                        <!-- TO ADD YOUR LOGO IMAGE IN FOOTER:            -->
+                        <!-- 1. Uncomment the <img> line below             -->
+                        <!-- 2. Comment out the <div class="logo-icon-text"> line -->
+                        <!-- 3. Replace "your-logo.png" with your image path -->
+                        <!-- ============================================= -->
+
+                        <!-- TEXT LOGO (default) -->
+                        <!--  <div class="logo-icon-text">TS</div> -->
+
+                        <!-- IMAGE LOGO (uncomment this and comment the one above) -->
+                        <img src="Adobe Express - file.png" alt="Tech Solution" class="logo-icon-img" />
+
+                        <div class="logo">Tech Solution</div>
+                    </div>
+                    <p>Digital solutions crafted with precision — we design, develop, and grow digital products that
+                        move people.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>Services</h4>
+                        <a href="#">Web Development</a>
+                        <a href="#">SEO Optimization</a>
+                        <a href="#">Digital Marketing</a>
+                        <a href="#">Web Maintenance</a>
+                        <a href="#">Analytics & Growth</a>
+                    </div>
+                    <div>
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div>
+                        <h4>Connect</h4>
+                        <a href="#"><i class="fab fa-linkedin" style="margin-right:6px;"></i>LinkedIn</a>
+                        <a href="#"><i class="fab fa-twitter" style="margin-right:6px;"></i>Twitter</a>
+                        <a href="#"><i class="fab fa-github" style="margin-right:6px;"></i>GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Tech Solution. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        (function () {
+            // ----- Dark Mode Toggle -----
+            const toggleBtn = document.getElementById('themeToggle');
+            const icon = toggleBtn.querySelector('i');
+
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                if (isDark) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // ----- FAQ Toggle (accordion) -----
+            const faqCards = document.querySelectorAll('.faq-card');
+
+            faqCards.forEach(card => {
+                const question = card.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close others (optional, but gives a cleaner accordion feel)
+                    faqCards.forEach(other => {
+                        if (other !== card && other.classList.contains('open')) {
+                            other.classList.remove('open');
+                        }
+                    });
+                    card.classList.toggle('open');
+                });
+            });
+
+            // ----- Scroll Animations -----
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const staggerElements = document.querySelectorAll('.stagger-children');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        if (entry.target.classList.contains('stagger-children')) {
+                            entry.target.classList.add('visible');
+                        }
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            animatedElements.forEach(el => observer.observe(el));
+            staggerElements.forEach(el => observer.observe(el));
+            document.querySelectorAll('.stagger-children').forEach(el => {
+                if (!el.classList.contains('animate-on-scroll')) {
+                    observer.observe(el);
+                }
+            });
+
+            // ----- Interactions -----
+            document.querySelectorAll('.learn-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('Explore our services — contact us for a full demo.');
+                });
+            });
+
+            document.querySelector('.btn-outline').addEventListener('click', () => {
+                alert('Let\'s talk! Reach out via email or phone.');
+            });
+
+            document.querySelectorAll('.nav-links a, .footer-links a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    if (targetId && targetId.startsWith('#')) {
+                        const target = document.querySelector(targetId);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+
+        })();
+    </script>
+</body>
+
+</html>
