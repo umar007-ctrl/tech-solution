@@ -79,7 +79,7 @@
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         /* ---------- Animations ---------- */
@@ -146,9 +146,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
+            position: relative;
         }
 
         .navbar-brand {
@@ -156,10 +157,10 @@
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         /* ---------- LOGO STYLES ---------- */
-        /* For text logo (default) */
         .logo-icon-text {
             width: 40px;
             height: 40px;
@@ -174,17 +175,15 @@
             flex-shrink: 0;
         }
 
-        /* For image logo - UNCOMMENT AND USE THIS */
-
         .logo-icon-img {
             height: 40px;
             width: auto;
             display: block;
+            max-width: 120px;
         }
 
-
         .logo {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: -0.02em;
             background: var(--accent-gradient);
@@ -193,17 +192,38 @@
             background-clip: text;
         }
 
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            background: var(--bg-soft);
+            border: none;
+            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .menu-toggle:hover {
+            background: var(--border-light);
+        }
+
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             font-weight: 500;
             color: var(--text-secondary);
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
             color: inherit;
             transition: color 0.2s;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -213,19 +233,20 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .btn-outline {
             border: 1.5px solid var(--text-primary);
-            padding: 0.6rem 1.6rem;
+            padding: 0.5rem 1.4rem;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: transparent;
             color: var(--text-primary);
             cursor: pointer;
             transition: all 0.2s;
+            white-space: nowrap;
         }
 
         .btn-outline:hover {
@@ -246,6 +267,7 @@
             align-items: center;
             justify-content: center;
             transition: background 0.2s;
+            flex-shrink: 0;
         }
 
         .theme-toggle:hover {
@@ -257,7 +279,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 4rem 0 3rem;
+            padding: 2.5rem 0 2.5rem;
         }
 
         .hero-tag {
@@ -265,20 +287,20 @@
             padding: 0.4rem 1.2rem;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 0.3px;
             color: var(--accent);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             display: inline-block;
         }
 
         .hero h1 {
-            font-size: 4.2rem;
+            font-size: 2.8rem;
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.1;
             max-width: 700px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .hero h1 span {
@@ -289,15 +311,15 @@
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 550px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .hero-stats {
             display: flex;
-            gap: 3rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
         }
 
@@ -307,7 +329,7 @@
         }
 
         .stat-number {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-primary);
         }
@@ -315,53 +337,55 @@
         .stat-label {
             color: var(--text-light);
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         /* ---------- Sections ---------- */
         .section-title {
-            font-size: 2.6rem;
+            font-size: 2rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .section-sub {
             color: var(--text-light);
             max-width: 650px;
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            margin-bottom: 2rem;
         }
 
         /* About */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin: 3rem 0 4rem;
+            gap: 2.5rem;
+            margin: 2rem 0 3rem;
         }
 
         .about-text h3 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .about-text p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
         }
 
         .about-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.8rem;
-            margin-top: 1rem;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
         }
 
         .feature-card {
             background: var(--bg-card);
-            padding: 1.5rem 1.2rem;
-            border-radius: 24px;
+            padding: 1.2rem 1rem;
+            border-radius: 20px;
             box-shadow: var(--shadow-card);
             border: 1px solid var(--border-card);
             transition: transform 0.2s, box-shadow 0.2s;
@@ -373,19 +397,20 @@
         }
 
         .feature-card i {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: var(--accent);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem;
         }
 
         .feature-card h4 {
             font-weight: 700;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
         }
 
         .feature-card p {
             color: var(--text-light);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             margin-bottom: 0;
         }
 
@@ -393,14 +418,14 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 2rem 0 4rem;
+            gap: 1.5rem;
+            margin: 1.5rem 0 3rem;
         }
 
         .service-card {
             background: var(--bg-card);
-            border-radius: 28px;
-            padding: 2rem 1.6rem;
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem;
             border: 1px solid var(--border-light);
             transition: transform 0.25s, box-shadow 0.25s, border-color 0.2s;
         }
@@ -412,28 +437,29 @@
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .service-card p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.92rem;
         }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
         }
 
         .tech-tags span {
             background: var(--tag-bg);
-            padding: 0.2rem 0.9rem;
+            padding: 0.15rem 0.8rem;
             border-radius: 40px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: var(--tag-text);
         }
@@ -446,10 +472,11 @@
             align-items: center;
             gap: 4px;
             transition: gap 0.2s;
+            font-size: 0.9rem;
         }
 
         .learn-link i {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             transition: transform 0.2s;
         }
 
@@ -457,17 +484,17 @@
             transform: translateX(5px);
         }
 
-        /* ---------- Stack (Top-Tier Talents) - NEW GRID ---------- */
+        /* ---------- Stack ---------- */
         .stack-section {
             background: var(--bg-stack);
-            border-radius: 48px;
-            padding: 3rem 2.5rem;
-            margin: 3rem 0;
+            border-radius: 32px;
+            padding: 2rem 1.5rem;
+            margin: 2rem 0;
             transition: background var(--transition);
         }
 
         .stack-header {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .stack-header .section-title {
@@ -477,18 +504,19 @@
         .stack-header p {
             color: var(--text-light);
             max-width: 600px;
+            font-size: 0.95rem;
         }
 
         .stack-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
+            gap: 1.5rem;
         }
 
         .stack-category {
             background: var(--bg-card);
-            border-radius: 28px;
-            padding: 1.8rem 1.8rem 2rem;
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem 1.5rem;
             box-shadow: var(--shadow-card);
             border: 1px solid var(--border-card);
             transition: transform 0.25s, box-shadow 0.25s;
@@ -502,31 +530,31 @@
         .stack-category .category-header {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.2rem;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-primary);
         }
 
         .stack-category .category-header i {
             color: var(--accent);
-            font-size: 1.4rem;
-            width: 2rem;
+            font-size: 1.2rem;
+            width: 1.8rem;
             text-align: center;
         }
 
         .stack-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.7rem;
+            gap: 0.5rem;
         }
 
         .stack-tags span {
             background: var(--tag-bg);
-            padding: 0.35rem 1.1rem;
+            padding: 0.25rem 0.9rem;
             border-radius: 40px;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 500;
             color: var(--tag-text);
             transition: background 0.2s, color 0.2s, transform 0.15s;
@@ -539,11 +567,10 @@
             background: var(--bg-card);
         }
 
-        /* Special icon tags for .NET, JS, etc */
         .stack-tags span .fab,
         .stack-tags span .fas {
-            margin-right: 6px;
-            font-size: 0.9rem;
+            margin-right: 4px;
+            font-size: 0.8rem;
         }
 
         /* Contact */
@@ -554,27 +581,29 @@
             align-items: center;
             background: var(--bg-contact);
             color: white;
-            border-radius: 40px;
-            padding: 3rem 3rem;
-            margin: 4rem 0 3rem;
+            border-radius: 32px;
+            padding: 2rem 1.8rem;
+            margin: 3rem 0 2.5rem;
             transition: background var(--transition);
+            gap: 1.5rem;
         }
 
         .contact-left h2 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .contact-left p {
             opacity: 0.75;
             max-width: 360px;
+            font-size: 0.95rem;
         }
 
         .contact-right {
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
+            gap: 0.5rem;
             align-items: flex-end;
         }
 
@@ -586,6 +615,7 @@
             align-items: center;
             gap: 10px;
             transition: opacity 0.2s;
+            font-size: 0.9rem;
         }
 
         .contact-right a:hover {
@@ -593,26 +623,27 @@
         }
 
         .contact-right i {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.7;
+            width: 1.2rem;
         }
 
         /* FAQ Section */
         .faq-section {
-            margin: 4rem 0 3rem;
+            margin: 3rem 0 2.5rem;
         }
 
         .faq-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
         }
 
         .faq-card {
             background: var(--bg-card);
-            border-radius: 28px;
-            padding: 1.8rem 1.8rem 1.2rem;
+            border-radius: 24px;
+            padding: 1.4rem 1.4rem 1rem;
             border: 1px solid var(--faq-border);
             box-shadow: var(--shadow-card);
             transition: all 0.25s ease;
@@ -630,14 +661,14 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-primary);
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .faq-question i {
             color: var(--accent);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: transform 0.3s ease;
             flex-shrink: 0;
         }
@@ -654,20 +685,20 @@
             padding-top: 0;
             color: var(--text-muted);
             line-height: 1.6;
-            font-size: 0.98rem;
+            font-size: 0.92rem;
         }
 
         .faq-card.open .faq-answer {
             max-height: 300px;
             opacity: 1;
-            padding-top: 1.2rem;
+            padding-top: 1rem;
         }
 
         /* Footer */
         .footer {
             border-top: 1px solid var(--footer-border);
-            padding: 2.5rem 0 2rem;
-            margin-top: 1rem;
+            padding: 2rem 0 1.5rem;
+            margin-top: 0.5rem;
             transition: border-color var(--transition);
         }
 
@@ -690,7 +721,6 @@
             gap: 0.75rem;
         }
 
-        /* Footer logo styles */
         .footer-brand .logo-icon-text {
             width: 36px;
             height: 36px;
@@ -705,44 +735,42 @@
             flex-shrink: 0;
         }
 
-        /* For image logo in footer - UNCOMMENT AND USE THIS */
-        /*
         .footer-brand .logo-icon-img {
             height: 36px;
             width: auto;
             display: block;
+            max-width: 100px;
         }
-        */
 
         .footer-brand .logo {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
 
         .footer-brand p {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             max-width: 260px;
-            margin-top: 0.2rem;
+            margin-top: 0.1rem;
         }
 
         .footer-links {
             display: flex;
-            gap: 3rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
         }
 
         .footer-links h4 {
             font-weight: 600;
-            margin-bottom: 0.6rem;
-            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
         }
 
         .footer-links a {
             display: block;
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.9rem;
-            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
             transition: color 0.2s;
         }
 
@@ -752,17 +780,18 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 1.8rem;
+            padding-top: 1.5rem;
             color: var(--text-light);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             border-top: 1px solid var(--footer-border);
-            margin-top: 1.5rem;
+            margin-top: 1.2rem;
         }
 
         /* ---------- Responsive ---------- */
         @media (max-width: 992px) {
             .about-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .services-grid {
@@ -778,68 +807,228 @@
             }
 
             .hero h1 {
-                font-size: 3.2rem;
-            }
-        }
-
-        @media (max-width: 720px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .nav-actions {
-                width: 100%;
-                justify-content: flex-start;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2.6rem;
-            }
-
-            .stack-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+                font-size: 2.8rem;
             }
 
             .contact-wrap {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1.5rem;
             }
 
             .contact-right {
                 align-items: flex-start;
                 width: 100%;
             }
+        }
 
-            .about-features {
-                grid-template-columns: 1fr;
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            /* Mobile Menu */
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0.8rem;
+                padding: 1rem 0 0.5rem;
+                border-top: 1px solid var(--border-light);
+                margin-top: 0.5rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+                padding: 0.4rem 0;
+                width: 100%;
+            }
+
+            .nav-actions {
+                margin-left: auto;
+            }
+
+            .navbar {
+                padding: 0.8rem 0;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-icon-img {
+                height: 32px;
+                max-width: 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
             }
 
             .hero-stats {
+                gap: 1.8rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .about-grid {
                 gap: 1.5rem;
+                margin: 1.5rem 0 2rem;
+            }
+
+            .stack-section {
+                padding: 1.5rem 1rem;
+                border-radius: 24px;
+            }
+
+            .stack-grid {
+                gap: 1rem;
+            }
+
+            .stack-category {
+                padding: 1.2rem 1rem;
+            }
+
+            .contact-wrap {
+                padding: 1.5rem 1.2rem;
+                border-radius: 24px;
+                margin: 2rem 0 1.5rem;
+            }
+
+            .contact-left h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-right a {
+                font-size: 0.85rem;
+            }
+
+            .faq-section {
+                margin: 2rem 0 1.5rem;
+            }
+
+            .faq-grid {
+                gap: 0.8rem;
+            }
+
+            .faq-card {
+                padding: 1rem 1rem 0.8rem;
+            }
+
+            .faq-question {
+                font-size: 0.92rem;
             }
 
             .footer-grid {
                 flex-direction: column;
+                gap: 1.5rem;
             }
 
             .footer-links {
                 gap: 1.5rem;
             }
 
-            .faq-grid {
-                grid-template-columns: 1fr;
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .btn-outline {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .menu-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-tag {
+                font-size: 0.7rem;
+                padding: 0.3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.3rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .hero-stats {
+                gap: 1.2rem;
+            }
+
+            .stack-tags span {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.7rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .service-card p {
+                font-size: 0.85rem;
+            }
+
+            .tech-tags span {
+                font-size: 0.7rem;
+                padding: 0.1rem 0.6rem;
+            }
+
+            .contact-right a {
+                font-size: 0.8rem;
+            }
+
+            .contact-left h2 {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -852,28 +1041,22 @@
         <!-- Nav -->
         <nav class="navbar">
             <a href="#" class="navbar-brand">
-                <!-- ============================================= -->
-                <!-- TO ADD YOUR LOGO IMAGE:                       -->
-                <!-- 1. Uncomment the <img> line below             -->
-                <!-- 2. Comment out the <div class="logo-icon-text"> line -->
-                <!-- 3. Replace "your-logo.png" with your image path -->
-                <!-- ============================================= -->
-
-                <!-- TEXT LOGO (default) -->
-                <!-- <div class="logo-icon-text">TS</div> --->
-
-                <!-- IMAGE LOGO (uncomment this and comment the one above) -->
                 <img src="Untitled - 29 July 2026 at 21.46.17 (1) (1).png" alt="Tech Solution" class="logo-icon-img" />
-
                 <div class="logo">Tech Solution</div>
             </a>
-            <div class="nav-links">
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="nav-links" id="navLinks">
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="#stack">Stack</a>
                 <a href="#faq">FAQ</a>
                 <a href="#contact">Contact</a>
             </div>
+
             <div class="nav-actions">
                 <button class="btn-outline">Let's talk</button>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -966,7 +1149,7 @@
             </div>
         </section>
 
-        <!-- Stack (Top-Tier Talents) - NEW VISUAL GRID -->
+        <!-- Stack -->
         <section class="stack-section animate-on-scroll" id="stack">
             <div class="stack-header">
                 <h2 class="section-title">Top-Tier Talents</h2>
@@ -974,7 +1157,6 @@
                     guarantees access to top professionals with proven expertise and a track record of excellence.</p>
             </div>
             <div class="stack-grid stagger-children" id="stackGrid">
-                <!-- Front End -->
                 <div class="stack-category">
                     <div class="category-header">
                         <i class="fas fa-code"></i> Front End
@@ -995,7 +1177,6 @@
                     </div>
                 </div>
 
-                <!-- Back End -->
                 <div class="stack-category">
                     <div class="category-header">
                         <i class="fas fa-server"></i> Back End
@@ -1096,19 +1277,8 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="brand-row">
-                        <!-- ============================================= -->
-                        <!-- TO ADD YOUR LOGO IMAGE IN FOOTER:            -->
-                        <!-- 1. Uncomment the <img> line below             -->
-                        <!-- 2. Comment out the <div class="logo-icon-text"> line -->
-                        <!-- 3. Replace "your-logo.png" with your image path -->
-                        <!-- ============================================= -->
-
-                        <!-- TEXT LOGO (default) -->
-                        <!--  <div class="logo-icon-text">TS</div> -->
-
-                        <!-- IMAGE LOGO (uncomment this and comment the one above) -->
-                        <img src="Adobe Express - file.png" alt="Tech Solution" class="logo-icon-img" />
-
+                        <img src="Untitled - 29 July 2026 at 21.46.17 (1) (1).png" alt="Tech Solution"
+                            class="logo-icon-img" />
                         <div class="logo">Tech Solution</div>
                     </div>
                     <p>Digital solutions crafted with precision — we design, develop, and grow digital products that
@@ -1170,13 +1340,37 @@
                 }
             });
 
+            // ----- Mobile Menu Toggle -----
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = menuToggle.querySelector('i');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+                if (navLinks.classList.contains('open')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
+
             // ----- FAQ Toggle (accordion) -----
             const faqCards = document.querySelectorAll('.faq-card');
 
             faqCards.forEach(card => {
                 const question = card.querySelector('.faq-question');
                 question.addEventListener('click', () => {
-                    // Close others (optional, but gives a cleaner accordion feel)
                     faqCards.forEach(other => {
                         if (other !== card && other.classList.contains('open')) {
                             other.classList.remove('open');
